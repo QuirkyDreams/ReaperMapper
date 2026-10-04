@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "unit": "resident deaths",
+  "series": [
+    {
+      "year": 2023,
+      "deaths": 3090964,
+      "status": "final",
+      "source": "CDC/NCHS Data Brief 521"
+    },
+    {
+      "year": 2024,
+      "deaths": 3072666,
+      "status": "final",
+      "source": "CDC/NCHS Data Brief 548"
+    }
+  ]
+}
