@@ -1,0 +1,49 @@
+{
+  "training_years": [
+    2022,
+    2023
+  ],
+  "target_year": 2024,
+  "resident_deaths": {
+    "2022": 3279857,
+    "2023": 3090964,
+    "2024": 3072666
+  },
+  "annual_forecast": 3090964,
+  "seasonal_monthly_mape_pct": 2.313,
+  "constant_daily_monthly_mape_pct": 4.275,
+  "seasonal_improvement_pct": 45.9,
+  "predicted_2024_monthly": [
+    319350,
+    261497,
+    260546,
+    241577,
+    245772,
+    237197,
+    245843,
+    246885,
+    240341,
+    253802,
+    254931,
+    283223
+  ],
+  "actual_2024_monthly": [
+    294589,
+    255129,
+    263199,
+    248972,
+    249911,
+    242177,
+    248384,
+    250539,
+    241904,
+    254644,
+    247967,
+    275251
+  ],
+  "notes": [
+    "2022-2023 pooled seasonality was frozen before 2024 scoring.",
+    "Resident status 4 (foreign residents) excluded.",
+    "January seasonal forecast error is +8.41%, indicating 2022 winter mortality distorted the pooled seasonal shape."
+  ]
+}
