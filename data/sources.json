@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "sources": [
+    {
+      "name": "NCHS Mortality Multiple Cause Public Use Files",
+      "authority": "CDC/NCHS",
+      "status": "final",
+      "years": "1968-2024",
+      "landing_page": "https://www.cdc.gov/NCHS/data_access/VitalStatsOnline.htm",
+      "documentation": "https://www.cdc.gov/nchs/nvss/mortality_public_use_data.htm",
+      "purpose": "Historical national mortality, age, cause, month and weekday modeling"
+    },
+    {
+      "name": "CDC WONDER Detailed Mortality",
+      "authority": "CDC/NCHS",
+      "status": "final",
+      "years": "1999-2024",
+      "landing_page": "https://wonder.cdc.gov/",
+      "purpose": "Aggregate validation and geography unavailable in public microdata"
+    },
+    {
+      "name": "NCHS restricted geography notice",
+      "authority": "CDC/NCHS",
+      "landing_page": "https://www.cdc.gov/nchs/nvss/nvss-restricted-data.htm",
+      "purpose": "Documents why state/county geography is not taken from post-2005 public microdata"
+    }
+  ]
+}
