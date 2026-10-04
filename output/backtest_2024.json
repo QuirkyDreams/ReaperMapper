@@ -1,0 +1,20 @@
+{
+  "target_year": 2024,
+  "actual_final_deaths": 3072666,
+  "models": {
+    "carry_forward_2023": {
+      "predicted_deaths": 3090964,
+      "absolute_error": 18298,
+      "absolute_percentage_error_pct": 0.596
+    },
+    "population_scaled_diagnostic": {
+      "predicted_deaths": 3121250,
+      "absolute_error": 48584,
+      "absolute_percentage_error_pct": 1.581
+    }
+  },
+  "notes": [
+    "carry_forward_2023 is the first legitimate simple benchmark.",
+    "population_scaled_diagnostic uses July 2024 Census population and is not a valid Jan 1 2024 forecast; it is retained only as a diagnostic."
+  ]
+}
