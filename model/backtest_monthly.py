@@ -13,7 +13,7 @@ from model.seasonality import monthly_counts, monthly_weights, allocate_annual_t
 
 def load_records(path):
     with open(path, "r", encoding="latin-1") as f:
-        return [parse_recent_record(line) for line in f if line.strip()]
+        return [r for line in f if line.strip() for r in [parse_recent_record(line)] if r.is_us_resident]
 
 
 def run(p2022, p2023, p2024):
