@@ -260,3 +260,18 @@
   .model-card>div:first-child{grid-column:auto}
   .model-card>div{border-right:0}
 }
+
+/* v19: map-only pinch zoom */
+.map-viewport{position:relative;overflow:hidden}
+.map-touch-hint,.map-reset{position:absolute;z-index:4;font:8px/1 Arial,sans-serif;letter-spacing:.12em}
+.map-touch-hint{display:none;left:14px;bottom:12px;color:var(--muted);pointer-events:none}
+.map-reset{right:14px;bottom:12px;padding:10px 12px;border:1px solid var(--line);background:rgba(17,18,16,.92);color:var(--ink);cursor:pointer;opacity:0;pointer-events:none;transition:opacity .15s}
+.map-reset.visible{opacity:1;pointer-events:auto}
+.map-reset:hover,.map-reset:focus{border-color:var(--warm);color:var(--warm);outline:none}
+@media(max-width:799px){
+  .map-viewport{touch-action:pan-y}
+  .map-touch-hint{display:block}
+  .map-viewport #us-map{touch-action:pan-y}
+  .map-view-label{z-index:5}
+  .state-card{position:relative;z-index:5}
+}
