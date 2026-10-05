@@ -36,7 +36,7 @@ function allocateStates(rows,nationalEstimate,nationalDeaths){
  return result;
 }
 function updateTodayLabel(){
- const label=document.getElementById("today-label");
+ const label=document.getElementById("today-label")||document.querySelector(".hero .eyebrow");
  if(label){
    const date=today.toLocaleDateString("en-US",{month:"short",day:"numeric"}).toUpperCase();
    label.textContent="UNITED STATES · TODAY · "+date;
