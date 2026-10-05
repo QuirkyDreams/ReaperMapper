@@ -45,6 +45,12 @@ function applyMapColors(){
  if(detail) detail.textContent=mapMetric==="rate"
    ? "● FINAL 2024 · age-adjusted deaths per 100,000"
    : "≈ MODEL 0.2 · estimated deaths today";
+ const title=document.getElementById("map-view-title");
+ const subtitle=document.getElementById("map-view-subtitle");
+ if(title) title.textContent=mapMetric==="rate" ? "MORTALITY RATE" : "ESTIMATED DEATHS TODAY";
+ if(subtitle) subtitle.textContent=mapMetric==="rate"
+   ? "2024 age-adjusted deaths per 100,000"
+   : "Model 0.2 · ≈ daily deaths";
 }
 function setMapMetric(metric){
  mapMetric=metric;
