@@ -37,7 +37,7 @@ function applyMapColors(){
  const rows=Object.values(stateEstimates);
  const key=mapMetric==="rate" ? "age_adjusted_rate_2024" : "estimate";
  const values=rows.map(r=>Number(r[key])).filter(Number.isFinite);
- svg.selectAll("path.state").attr("fill",d=>{
+ svg.selectAll("path.state").style("fill",d=>{
    const row=stateEstimates[names[+d.id]];
    if(!row) return "#20211d";
    const value=Number(row[key]);
