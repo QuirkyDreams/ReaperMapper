@@ -13,7 +13,7 @@ fetch("data/current.json", {cache:"no-store"})
 
 const svg=d3.select("#us-map"), card=document.getElementById("state-card");
 let stateEstimates={}, usMortalityRate=722.1;
-fetch("data/current.json",{cache:"no-store"}).then(r=>r.json()).then(data=>{stateEstimates=data?.states?.estimates||{}; usMortalityRate=data?.states?.rate_metric?.us_rate||722.1; applyRateColors();}).catch(()=>{});
+fetch("data/current.json",{cache:"no-store"}).then(r=>r.json()).then(data=>{stateEstimates=data?.states?.estimates||{}; usMortalityRate=data?.states?.rate_metric?.us_rate||722.1; applyMapColors();}).catch(()=>{});
 const names={1:"Alabama",2:"Alaska",4:"Arizona",5:"Arkansas",6:"California",8:"Colorado",9:"Connecticut",10:"Delaware",11:"District of Columbia",12:"Florida",13:"Georgia",15:"Hawaii",16:"Idaho",17:"Illinois",18:"Indiana",19:"Iowa",20:"Kansas",21:"Kentucky",22:"Louisiana",23:"Maine",24:"Maryland",25:"Massachusetts",26:"Michigan",27:"Minnesota",28:"Mississippi",29:"Missouri",30:"Montana",31:"Nebraska",32:"Nevada",33:"New Hampshire",34:"New Jersey",35:"New Mexico",36:"New York",37:"North Carolina",38:"North Dakota",39:"Ohio",40:"Oklahoma",41:"Oregon",42:"Pennsylvania",44:"Rhode Island",45:"South Carolina",46:"South Dakota",47:"Tennessee",48:"Texas",49:"Utah",50:"Vermont",51:"Virginia",53:"Washington",54:"West Virginia",55:"Wisconsin",56:"Wyoming"};
 function show(d){
  const name=names[+d.id], row=stateEstimates[name];
@@ -25,17 +25,36 @@ function show(d){
    card.innerHTML='<p class="eyebrow">STATE</p><strong>'+name+'</strong><span>Estimate loading…</span>';
  }
 }
-function rateColor(rate){
- const min=570,max=985,t=Math.max(0,Math.min(1,(rate-min)/(max-min)));
+let mapMetric="rate";
+function metricColor(value,min,max){
+ const t=Math.max(0,Math.min(1,(value-min)/(max-min)));
  return d3.interpolateRgb("#252620","#b99a69")(t);
 }
-function applyRateColors(){
+function applyMapColors(){
+ const rows=Object.values(stateEstimates);
+ const deathValues=rows.map(r=>Number(r.estimate)).filter(Number.isFinite);
+ const deathMin=Math.min(...deathValues), deathMax=Math.max(...deathValues);
  svg.selectAll("path.state").attr("fill",d=>{
    const row=stateEstimates[names[+d.id]];
-   return row?.age_adjusted_rate_2024 ? rateColor(row.age_adjusted_rate_2024) : "#252620";
+   if(!row) return "#252620";
+   return mapMetric==="rate"
+     ? metricColor(Number(row.age_adjusted_rate_2024),570,985)
+     : metricColor(Number(row.estimate),deathMin,deathMax);
  });
+ const detail=document.getElementById("legend-detail");
+ if(detail) detail.textContent=mapMetric==="rate"
+   ? "● FINAL 2024 · age-adjusted deaths per 100,000"
+   : "≈ MODEL 0.2 · estimated deaths today";
 }
+function setMapMetric(metric){
+ mapMetric=metric;
+ document.getElementById("metric-rate")?.classList.toggle("active",metric==="rate");
+ document.getElementById("metric-deaths")?.classList.toggle("active",metric==="deaths");
+ applyMapColors();
+}
+document.getElementById("metric-rate")?.addEventListener("click",()=>setMapMetric("rate"));
+document.getElementById("metric-deaths")?.addEventListener("click",()=>setMapMetric("deaths"));
 fetch("https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.json").then(r=>r.json()).then(us=>{
  const states=topojson.feature(us,us.objects.states), projection=d3.geoAlbersUsa().fitExtent([[35,35],[925,555]],states); projection.scale(projection.scale()*1.35); const [px,py]=projection.translate(); projection.translate([px-72,py]); const path=d3.geoPath(projection);
- svg.selectAll("path").data(states.features).join("path").attr("class","state").attr("d",path).attr("tabindex",0).attr("aria-label",d=>names[+d.id]).on("mouseenter focus click",(e,d)=>show(d)); applyRateColors();
+ svg.selectAll("path").data(states.features).join("path").attr("class","state").attr("d",path).attr("tabindex",0).attr("aria-label",d=>names[+d.id]).on("mouseenter focus click",(e,d)=>show(d)); applyMapColors();
 }).catch(()=>{card.innerHTML='<p class="eyebrow">MAP</p><strong>Map unavailable</strong><span>The geographic layer could not be loaded.</span>'});
