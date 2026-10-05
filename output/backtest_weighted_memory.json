@@ -1,0 +1,38 @@
+{
+  "experiment": "weighted_seasonal_memory_0.1",
+  "rule": "Fixed candidates scored on both held-out target years; no candidate selected from 2024 alone.",
+  "candidates": [
+    {
+      "recent_weight": 1,
+      "older_weight": 0,
+      "mape_pct_2023": 6.294,
+      "mape_pct_2024": 1.619
+    },
+    {
+      "recent_weight": 0.9,
+      "older_weight": 0.1,
+      "mape_pct_2023": 6.398,
+      "mape_pct_2024": 1.193
+    },
+    {
+      "recent_weight": 0.75,
+      "older_weight": 0.25,
+      "mape_pct_2023": 6.577,
+      "mape_pct_2024": 1.248
+    },
+    {
+      "recent_weight": 0.667,
+      "older_weight": 0.333,
+      "mape_pct_2023": 6.72,
+      "mape_pct_2024": 1.476
+    },
+    {
+      "recent_weight": 0.5,
+      "older_weight": 0.5,
+      "mape_pct_2023": 7.072,
+      "mape_pct_2024": 2.24
+    }
+  ],
+  "verdict": "REJECT weighted-memory complexity for Model Lab 0.1. Last-year-only is the only candidate that wins 2023 and remains competitive in 2024. 90/10 wins 2024 but loses 2023, so adopting it would be target-year cherry-picking.",
+  "promoted_model": "previous_year_monthly_shape"
+}
