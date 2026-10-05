@@ -5,7 +5,7 @@
 <meta name="description" content="ReaperMapper maps modeled mortality across America using transparent official U.S. mortality statistics.">
 <title>ReaperMapper — Mortality across America</title>
 <link rel="preconnect" href="https://cdn.jsdelivr.net">
-<link rel="stylesheet" href="styles.css?v=20261004-2040">
+<link rel="stylesheet" href="styles.css?v=20261004-2050">
 </head>
 <body>
 <header class="site-header"><a class="brand" href="/">REAPER<span>MAPPER</span></a><div class="tag">Mortality across America.</div></header>
@@ -60,6 +60,18 @@
 
 <div class="provenance"><div><b>≈</b><span>Modelled estimate</span></div><div><b>P</b><span>Provisional data</span></div><div><b>●</b><span>Final data</span></div></div>
 <p class="method-caveat">ReaperMapper does not identify individual deaths, predict who will die, or claim that a death occurred when the display changes. Recent provisional mortality data can be incomplete because death certificates take time to be reported and processed.</p>
+</section>
+<section class="sources" aria-labelledby="sources-title">
+<p class="eyebrow">SOURCES &amp; DATA</p>
+<h2 id="sources-title">Follow the numbers.</h2>
+<p class="sources-lede">ReaperMapper separates official mortality data from the estimates built on top of it. The source year and status are shown wherever they matter.</p>
+<div class="source-list">
+<a href="https://www.cdc.gov/nchs/data/vsrr/vsrr044.pdf" target="_blank" rel="noopener"><span class="source-status provisional">P · 2025</span><strong>Provisional U.S. mortality</strong><small>CDC/NCHS Vital Statistics Rapid Release No. 44 · 3,094,593 deaths · 99.9% of 2025 records received and processed as of May 10, 2026</small><b>OPEN SOURCE ↗</b></a>
+<a href="https://www.cdc.gov/nchs/nvss/deaths.htm" target="_blank" rel="noopener"><span class="source-status final">● · 2024</span><strong>Final U.S. mortality</strong><small>National Vital Statistics System · 3,072,666 resident deaths · age-adjusted rate 722.1 per 100,000</small><b>OPEN SOURCE ↗</b></a>
+<a href="https://www.cdc.gov/nchs/fastats/state-and-territorial-data.htm" target="_blank" rel="noopener"><span class="source-status final">● · 2024</span><strong>State deaths &amp; mortality rates</strong><small>NVSS mortality state data via CDC WONDER · final death counts and age-adjusted rates used by the state views</small><b>OPEN SOURCE ↗</b></a>
+<a href="https://www.cdc.gov/nchs/state-stats/index.html" target="_blank" rel="noopener"><span class="source-status final">● · 2024</span><strong>CDC Stats of the States</strong><small>State mortality comparison framework · CDC notes that age-adjusted rates are used to compare states more meaningfully</small><b>OPEN SOURCE ↗</b></a>
+</div>
+<div class="model-source-note"><span>≈ MODEL 0.2</span><p>ReaperMapper's displayed daily and state counts are <strong>derived estimates</strong>, not values published by CDC. The national daily expectation combines the provisional 2025 annual baseline with final 2024 seasonality; state daily estimates are allocated from that national total using final 2024 state shares.</p></div>
 </section>
 </main>
 <footer><span>REAPERMAPPER</span><span>A Quirky Dreams! Software project</span><span>Model 0.2</span></footer>
