@@ -1,0 +1,116 @@
+{
+  "schema_version": "dtm-audit-0.1",
+  "status": "audit",
+  "production_ready": false,
+  "source": "NCHS_CMF_ICD8",
+  "rate_standard": "2000_US",
+  "years": {
+    "1969": {
+      "status": "final",
+      "national": {
+        "deaths": 1921990,
+        "published_age_adjusted_rate": 1271.8
+      },
+      "state_death_counts_status": "validated_from_uploaded_CMF",
+      "state_age_adjusted_rates_status": "pending_official_verification",
+      "jurisdiction_count": 51
+    },
+    "1970": {
+      "status": "final",
+      "national": {
+        "deaths": 1921031,
+        "published_age_adjusted_rate": 1222.6
+      },
+      "state_death_counts_status": "validated_from_uploaded_CMF",
+      "state_age_adjusted_rates_status": "pending_official_verification",
+      "jurisdiction_count": 51
+    },
+    "1971": {
+      "status": "final",
+      "national": {
+        "deaths": 1927542,
+        "published_age_adjusted_rate": 1213.1
+      },
+      "state_death_counts_status": "validated_from_uploaded_CMF",
+      "state_age_adjusted_rates_status": "pending_official_verification",
+      "jurisdiction_count": 51
+    },
+    "1972": {
+      "status": "final",
+      "national": {
+        "deaths": 1963944,
+        "published_age_adjusted_rate": 1214.8
+      },
+      "state_death_counts_status": "validated_from_uploaded_CMF",
+      "state_age_adjusted_rates_status": "pending_official_verification",
+      "jurisdiction_count": 51
+    },
+    "1973": {
+      "status": "final",
+      "national": {
+        "deaths": 1973003,
+        "published_age_adjusted_rate": 1201.2
+      },
+      "state_death_counts_status": "validated_from_uploaded_CMF",
+      "state_age_adjusted_rates_status": "pending_official_verification",
+      "jurisdiction_count": 51
+    },
+    "1974": {
+      "status": "final",
+      "national": {
+        "deaths": 1934388,
+        "published_age_adjusted_rate": 1151.8
+      },
+      "state_death_counts_status": "validated_from_uploaded_CMF",
+      "state_age_adjusted_rates_status": "pending_official_verification",
+      "jurisdiction_count": 51
+    },
+    "1975": {
+      "status": "final",
+      "national": {
+        "deaths": 1892879,
+        "published_age_adjusted_rate": 1094.4
+      },
+      "state_death_counts_status": "validated_from_uploaded_CMF",
+      "state_age_adjusted_rates_status": "pending_official_verification",
+      "jurisdiction_count": 51
+    },
+    "1976": {
+      "status": "final",
+      "national": {
+        "deaths": 1909440,
+        "published_age_adjusted_rate": 1084.1
+      },
+      "state_death_counts_status": "validated_from_uploaded_CMF",
+      "state_age_adjusted_rates_status": "pending_official_verification",
+      "jurisdiction_count": 51
+    },
+    "1977": {
+      "status": "final",
+      "national": {
+        "deaths": 1899597,
+        "published_age_adjusted_rate": 1051.6
+      },
+      "state_death_counts_status": "validated_from_uploaded_CMF",
+      "state_age_adjusted_rates_status": "pending_official_verification",
+      "jurisdiction_count": 51
+    },
+    "1978": {
+      "status": "final",
+      "national": {
+        "deaths": 1927788,
+        "published_age_adjusted_rate": 1043.7
+      },
+      "state_death_counts_status": "validated_from_uploaded_CMF",
+      "state_age_adjusted_rates_status": "pending_official_verification",
+      "jurisdiction_count": 51
+    }
+  },
+  "notes": [
+    "All state/DC death counts were parsed from the uploaded NCHS 1968-1978 Compressed Mortality File.",
+    "Each year contains all 50 states plus District of Columbia and state/DC counts sum exactly to the stored national total.",
+    "1972 CMF values reflect NCHS's 50-percent sample weighted by factor 2.",
+    "Published national age-adjusted rates use the 2000 U.S. standard population.",
+    "State age-adjusted rates are deliberately not promoted in this batch pending official verification."
+  ]
+}
