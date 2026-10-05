@@ -26,37 +26,33 @@ function show(d){
  }
 }
 let mapMetric="rate";
-const gradeColors=["#252620","#514b3d","#76684f","#9a805e","#c3a06c"];
-function quintileBreaks(values){
+function continuousMetricColor(value,values){
  const sorted=values.filter(Number.isFinite).sort((a,b)=>a-b);
- return [0.2,0.4,0.6,0.8].map(q=>d3.quantileSorted(sorted,q));
-}
-function gradeIndex(value,breaks){
- let i=0;
- while(i<breaks.length && value>breaks[i]) i++;
- return i;
+ const low=d3.quantileSorted(sorted,0.02);
+ const high=d3.quantileSorted(sorted,0.98);
+ const t=Math.max(0,Math.min(1,(value-low)/(high-low)));
+ return d3.interpolateRgbBasis(["#20211d","#3f3c31","#716044","#a17b4e","#d2a25e","#f0c878"])(t);
 }
 function applyMapColors(){
  const rows=Object.values(stateEstimates);
  const key=mapMetric==="rate" ? "age_adjusted_rate_2024" : "estimate";
  const values=rows.map(r=>Number(r[key])).filter(Number.isFinite);
- const breaks=quintileBreaks(values);
  svg.selectAll("path.state").attr("fill",d=>{
    const row=stateEstimates[names[+d.id]];
-   if(!row) return gradeColors[0];
+   if(!row) return "#20211d";
    const value=Number(row[key]);
-   return Number.isFinite(value) ? gradeColors[gradeIndex(value,breaks)] : gradeColors[0];
+   return Number.isFinite(value) ? continuousMetricColor(value,values) : "#20211d";
  });
  const detail=document.getElementById("legend-detail");
  if(detail) detail.textContent=mapMetric==="rate"
-   ? "● FINAL 2024 · quintiles of age-adjusted deaths per 100,000"
-   : "≈ MODEL 0.2 · quintiles of estimated deaths today";
+   ? "● FINAL 2024 · age-adjusted deaths per 100,000"
+   : "≈ MODEL 0.2 · estimated deaths today";
  const title=document.getElementById("map-view-title");
  const subtitle=document.getElementById("map-view-subtitle");
  if(title) title.textContent=mapMetric==="rate" ? "MORTALITY RATE" : "ESTIMATED DEATHS TODAY";
  if(subtitle) subtitle.textContent=mapMetric==="rate"
-   ? "2024 age-adjusted deaths per 100,000 · 5 grades"
-   : "Model 0.2 · ≈ daily deaths · 5 grades";
+   ? "2024 age-adjusted deaths per 100,000"
+   : "Model 0.2 · ≈ daily deaths";
 }
 function setMapMetric(metric){
  mapMetric=metric;
