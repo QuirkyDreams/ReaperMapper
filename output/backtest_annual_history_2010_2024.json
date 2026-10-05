@@ -1,0 +1,36 @@
+{
+  "experiment": "annual_historical_proving_ground_0.1",
+  "years": [
+    2010,
+    2024
+  ],
+  "forecast_targets": [
+    2013,
+    2024
+  ],
+  "final_resident_deaths": {
+    "2010": 2468435,
+    "2011": 2515458,
+    "2012": 2543279,
+    "2013": 2596993,
+    "2014": 2626418,
+    "2015": 2712630,
+    "2016": 2744248,
+    "2017": 2813503,
+    "2018": 2839205,
+    "2019": 2854838,
+    "2020": 3383729,
+    "2021": 3464231,
+    "2022": 3279857,
+    "2023": 3090964,
+    "2024": 3072666
+  },
+  "summary_mape_pct": {
+    "carry": 3.476303,
+    "damped50": 3.468577,
+    "linear3": 4.290098,
+    "recent_trend": 4.511791
+  },
+  "verdict": "KEEP carry-forward for Model 0.1. Damped50 improves mean MAPE by only 0.007726 percentage point, insufficient to justify complexity; no trend model dominates across regimes.",
+  "promoted_model": "carry_forward_previous_final_annual_total"
+}
