@@ -1,20 +1,68 @@
-
-// National Model 0.2 display. Data lives separately so later update jobs do not rewrite the UI.
-fetch("data/current.json", {cache:"no-store"})
-  .then(r=>{if(!r.ok) throw new Error("National estimate unavailable"); return r.json();})
-  .then(data=>{
-    const el=document.getElementById("national-number");
-    if(el && Number.isFinite(data?.national?.estimate)){
-      el.textContent=Number(data.national.estimate).toLocaleString("en-US");
-      el.title=data.national.precision_note || "Modeled estimate";
-    }
-  })
-  .catch(err=>console.warn(err));
-
+// ReaperMapper Model 0.2 display.
+// The source data are static; the displayed daily expectation is derived for the viewer's current local month.
 const svg=d3.select("#us-map"), card=document.getElementById("state-card");
-let stateEstimates={}, usMortalityRate=722.1;
-const stateDataReady=fetch("data/current.json",{cache:"no-store"}).then(r=>{if(!r.ok) throw new Error("State data unavailable"); return r.json();}).then(data=>{stateEstimates=data?.states?.estimates||{}; usMortalityRate=data?.states?.rate_metric?.us_rate||722.1; return stateEstimates;});
+const today=new Date();
+let stateEstimates={}, usMortalityRate=722.1, nationalDailyEstimate=null;
+
 const names={1:"Alabama",2:"Alaska",4:"Arizona",5:"Arkansas",6:"California",8:"Colorado",9:"Connecticut",10:"Delaware",11:"District of Columbia",12:"Florida",13:"Georgia",15:"Hawaii",16:"Idaho",17:"Illinois",18:"Indiana",19:"Iowa",20:"Kansas",21:"Kentucky",22:"Louisiana",23:"Maine",24:"Maryland",25:"Massachusetts",26:"Michigan",27:"Minnesota",28:"Mississippi",29:"Missouri",30:"Montana",31:"Nebraska",32:"Nevada",33:"New Hampshire",34:"New Jersey",35:"New Mexico",36:"New York",37:"North Carolina",38:"North Dakota",39:"Ohio",40:"Oklahoma",41:"Oregon",42:"Pennsylvania",44:"Rhode Island",45:"South Carolina",46:"South Dakota",47:"Tennessee",48:"Texas",49:"Utah",50:"Vermont",51:"Virginia",53:"Washington",54:"West Virginia",55:"Wisconsin",56:"Wyoming"};
+
+function fetchJSON(url){
+ return fetch(url,{cache:"no-store"}).then(r=>{if(!r.ok) throw new Error(url+" unavailable"); return r.json();});
+}
+function daysInMonth(date){return new Date(date.getFullYear(),date.getMonth()+1,0).getDate();}
+function deriveNationalDaily(data,seasonality,date){
+ const annualBaseline=Number(data?.national?.annual_baseline?.deaths);
+ const monthly=seasonality?.monthly_deaths;
+ const seasonalAnnual=Number(seasonality?.annual_deaths)||monthly?.reduce((a,b)=>a+Number(b||0),0);
+ const monthDeaths=Array.isArray(monthly)?Number(monthly[date.getMonth()]):NaN;
+ if(Number.isFinite(annualBaseline)&&Number.isFinite(seasonalAnnual)&&seasonalAnnual>0&&Number.isFinite(monthDeaths)){
+   const unrounded=annualBaseline*(monthDeaths/seasonalAnnual)/daysInMonth(date);
+   return {estimate:Math.round(unrounded),unrounded};
+ }
+ const fallback=Number(data?.national?.estimate);
+ return Number.isFinite(fallback)?{estimate:fallback,unrounded:Number(data?.national?.unrounded_daily_estimate)||fallback}:null;
+}
+function allocateStates(rows,nationalEstimate,nationalDeaths){
+ const entries=Object.entries(rows||{}).map(([name,row])=>{
+   const deaths=Number(row.final_2024_deaths);
+   const raw=Number.isFinite(deaths)&&nationalDeaths>0 ? nationalEstimate*(deaths/nationalDeaths) : Number(row.estimate)||0;
+   return {name,row:{...row},raw,base:Math.floor(raw),fraction:raw-Math.floor(raw)};
+ });
+ let remainder=nationalEstimate-entries.reduce((sum,e)=>sum+e.base,0);
+ entries.sort((a,b)=>b.fraction-a.fraction||a.name.localeCompare(b.name));
+ for(let i=0;i<entries.length&&remainder>0;i++,remainder--) entries[i].base+=1;
+ const result={};
+ for(const e of entries) result[e.name]={...e.row,estimate:e.base};
+ return result;
+}
+function updateTodayLabel(){
+ const label=document.getElementById("today-label");
+ if(label){
+   const date=today.toLocaleDateString("en-US",{month:"short",day:"numeric"}).toUpperCase();
+   label.textContent="UNITED STATES · TODAY · "+date;
+ }
+}
+
+updateTodayLabel();
+
+const modelDataReady=Promise.all([
+ fetchJSON("data/current.json"),
+ fetchJSON("data/seasonality_2024.json").catch(err=>{console.warn(err); return null;})
+]).then(([data,seasonality])=>{
+ const derived=deriveNationalDaily(data,seasonality,today);
+ if(!derived) throw new Error("National estimate unavailable");
+ nationalDailyEstimate=derived.estimate;
+ const el=document.getElementById("national-number");
+ if(el){
+   el.textContent=derived.estimate.toLocaleString("en-US");
+   el.title=(data?.national?.precision_note||"Modeled estimate")+" Daily expectation for "+today.toLocaleDateString("en-US",{month:"long",day:"numeric",year:"numeric"})+".";
+ }
+ usMortalityRate=Number(data?.states?.rate_metric?.us_rate)||722.1;
+ const nationalDeaths=Number(data?.states?.source?.national_deaths)||Number(seasonality?.annual_deaths)||3072666;
+ stateEstimates=allocateStates(data?.states?.estimates||{},derived.estimate,nationalDeaths);
+ return stateEstimates;
+}).catch(err=>{console.warn(err); throw err;});
+
 function show(d){
  const name=names[+d.id], row=stateEstimates[name];
  if(row){
@@ -62,7 +110,8 @@ function setMapMetric(metric){
 }
 document.getElementById("metric-rate")?.addEventListener("click",()=>setMapMetric("rate"));
 document.getElementById("metric-deaths")?.addEventListener("click",()=>setMapMetric("deaths"));
-Promise.all([stateDataReady,fetch("https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.json").then(r=>{if(!r.ok) throw new Error("Map geometry unavailable"); return r.json();})]).then(([,us])=>{
+
+Promise.all([modelDataReady,fetchJSON("https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.json")]).then(([,us])=>{
  const states=topojson.feature(us,us.objects.states), projection=d3.geoAlbersUsa().fitExtent([[35,35],[925,555]],states); projection.scale(projection.scale()*1.35); const [px,py]=projection.translate(); projection.translate([px-72,py]); const path=d3.geoPath(projection);
  const geography=svg.append("g").attr("class","map-geography");
  geography.selectAll("path").data(states.features).join("path").attr("class","state").attr("d",path).attr("tabindex",0).attr("aria-label",d=>names[+d.id]).on("mouseenter focus click",(e,d)=>show(d));
