@@ -37,208 +37,267 @@
     "estimates": {
       "Alabama": {
         "estimate": 159,
-        "final_2024_deaths": 58885
+        "final_2024_deaths": 58885,
+        "age_adjusted_rate_2024": 911.2
       },
       "Alaska": {
         "estimate": 15,
-        "final_2024_deaths": 5523
+        "final_2024_deaths": 5523,
+        "age_adjusted_rate_2024": 763.8
       },
       "Arizona": {
         "estimate": 190,
-        "final_2024_deaths": 70469
+        "final_2024_deaths": 70469,
+        "age_adjusted_rate_2024": 699.8
       },
       "Arkansas": {
         "estimate": 97,
-        "final_2024_deaths": 35976
+        "final_2024_deaths": 35976,
+        "age_adjusted_rate_2024": 926.5
       },
       "California": {
         "estimate": 776,
-        "final_2024_deaths": 288143
+        "final_2024_deaths": 288143,
+        "age_adjusted_rate_2024": 612.6
       },
       "Colorado": {
         "estimate": 120,
-        "final_2024_deaths": 44524
+        "final_2024_deaths": 44524,
+        "age_adjusted_rate_2024": 673.4
       },
       "Connecticut": {
         "estimate": 87,
-        "final_2024_deaths": 32481
+        "final_2024_deaths": 32481,
+        "age_adjusted_rate_2024": 642.1
       },
       "Delaware": {
         "estimate": 29,
-        "final_2024_deaths": 10681
+        "final_2024_deaths": 10681,
+        "age_adjusted_rate_2024": 738
       },
       "District of Columbia": {
         "estimate": 13,
-        "final_2024_deaths": 4817
+        "final_2024_deaths": 4817,
+        "age_adjusted_rate_2024": 682.4
       },
       "Florida": {
         "estimate": 615,
-        "final_2024_deaths": 228400
+        "final_2024_deaths": 228400,
+        "age_adjusted_rate_2024": 643.5
       },
       "Georgia": {
         "estimate": 260,
-        "final_2024_deaths": 96748
+        "final_2024_deaths": 96748,
+        "age_adjusted_rate_2024": 785.1
       },
       "Hawaii": {
         "estimate": 34,
-        "final_2024_deaths": 12793
+        "final_2024_deaths": 12793,
+        "age_adjusted_rate_2024": 573.3
       },
       "Idaho": {
         "estimate": 45,
-        "final_2024_deaths": 16758
+        "final_2024_deaths": 16758,
+        "age_adjusted_rate_2024": 714.3
       },
       "Illinois": {
         "estimate": 302,
-        "final_2024_deaths": 112006
+        "final_2024_deaths": 112006,
+        "age_adjusted_rate_2024": 697.9
       },
       "Indiana": {
         "estimate": 187,
-        "final_2024_deaths": 69509
+        "final_2024_deaths": 69509,
+        "age_adjusted_rate_2024": 826.7
       },
       "Iowa": {
         "estimate": 88,
-        "final_2024_deaths": 32817
+        "final_2024_deaths": 32817,
+        "age_adjusted_rate_2024": 756.7
       },
       "Kansas": {
         "estimate": 79,
-        "final_2024_deaths": 29192
+        "final_2024_deaths": 29192,
+        "age_adjusted_rate_2024": 790.8
       },
       "Kentucky": {
         "estimate": 141,
-        "final_2024_deaths": 52387
+        "final_2024_deaths": 52387,
+        "age_adjusted_rate_2024": 928.9
       },
       "Louisiana": {
         "estimate": 132,
-        "final_2024_deaths": 49183
+        "final_2024_deaths": 49183,
+        "age_adjusted_rate_2024": 893.2
       },
       "Maine": {
         "estimate": 45,
-        "final_2024_deaths": 16595
+        "final_2024_deaths": 16595,
+        "age_adjusted_rate_2024": 777
       },
       "Maryland": {
         "estimate": 143,
-        "final_2024_deaths": 53309
+        "final_2024_deaths": 53309,
+        "age_adjusted_rate_2024": 683.5
       },
       "Massachusetts": {
         "estimate": 161,
-        "final_2024_deaths": 59972
+        "final_2024_deaths": 59972,
+        "age_adjusted_rate_2024": 637.5
       },
       "Michigan": {
         "estimate": 277,
-        "final_2024_deaths": 102819
+        "final_2024_deaths": 102819,
+        "age_adjusted_rate_2024": 774.8
       },
       "Minnesota": {
         "estimate": 134,
-        "final_2024_deaths": 49771
+        "final_2024_deaths": 49771,
+        "age_adjusted_rate_2024": 669.5
       },
       "Mississippi": {
         "estimate": 95,
-        "final_2024_deaths": 35242
+        "final_2024_deaths": 35242,
+        "age_adjusted_rate_2024": 982.5
       },
       "Missouri": {
         "estimate": 179,
-        "final_2024_deaths": 66642
+        "final_2024_deaths": 66642,
+        "age_adjusted_rate_2024": 828.1
       },
       "Montana": {
         "estimate": 31,
-        "final_2024_deaths": 11543
+        "final_2024_deaths": 11543,
+        "age_adjusted_rate_2024": 753.3
       },
       "Nebraska": {
         "estimate": 49,
-        "final_2024_deaths": 18271
+        "final_2024_deaths": 18271,
+        "age_adjusted_rate_2024": 750
       },
       "Nevada": {
         "estimate": 79,
-        "final_2024_deaths": 29410
+        "final_2024_deaths": 29410,
+        "age_adjusted_rate_2024": 756.8
       },
       "New Hampshire": {
         "estimate": 38,
-        "final_2024_deaths": 14001
+        "final_2024_deaths": 14001,
+        "age_adjusted_rate_2024": 693.4
       },
       "New Jersey": {
         "estimate": 202,
-        "final_2024_deaths": 74876
+        "final_2024_deaths": 74876,
+        "age_adjusted_rate_2024": 610.5
       },
       "New Mexico": {
         "estimate": 59,
-        "final_2024_deaths": 22013
+        "final_2024_deaths": 22013,
+        "age_adjusted_rate_2024": 797.7
       },
       "New York": {
         "estimate": 430,
-        "final_2024_deaths": 159614
+        "final_2024_deaths": 159614,
+        "age_adjusted_rate_2024": 592.3
       },
       "North Carolina": {
         "estimate": 286,
-        "final_2024_deaths": 106055
+        "final_2024_deaths": 106055,
+        "age_adjusted_rate_2024": 791.4
       },
       "North Dakota": {
         "estimate": 19,
-        "final_2024_deaths": 6966
+        "final_2024_deaths": 6966,
+        "age_adjusted_rate_2024": 704.5
       },
       "Ohio": {
         "estimate": 341,
-        "final_2024_deaths": 126828
+        "final_2024_deaths": 126828,
+        "age_adjusted_rate_2024": 821.3
       },
       "Oklahoma": {
         "estimate": 121,
-        "final_2024_deaths": 45056
+        "final_2024_deaths": 45056,
+        "age_adjusted_rate_2024": 937.8
       },
       "Oregon": {
         "estimate": 114,
-        "final_2024_deaths": 42248
+        "final_2024_deaths": 42248,
+        "age_adjusted_rate_2024": 749.1
       },
       "Pennsylvania": {
         "estimate": 366,
-        "final_2024_deaths": 135880
+        "final_2024_deaths": 135880,
+        "age_adjusted_rate_2024": 737.3
       },
       "Rhode Island": {
         "estimate": 28,
-        "final_2024_deaths": 10287
+        "final_2024_deaths": 10287,
+        "age_adjusted_rate_2024": 669.9
       },
       "South Carolina": {
         "estimate": 157,
-        "final_2024_deaths": 58235
+        "final_2024_deaths": 58235,
+        "age_adjusted_rate_2024": 832.3
       },
       "South Dakota": {
         "estimate": 24,
-        "final_2024_deaths": 8794
+        "final_2024_deaths": 8794,
+        "age_adjusted_rate_2024": 760.5
       },
       "Tennessee": {
         "estimate": 214,
-        "final_2024_deaths": 79360
+        "final_2024_deaths": 79360,
+        "age_adjusted_rate_2024": 914.1
       },
       "Texas": {
         "estimate": 618,
-        "final_2024_deaths": 229560
+        "final_2024_deaths": 229560,
+        "age_adjusted_rate_2024": 734.6
       },
       "Utah": {
         "estimate": 58,
-        "final_2024_deaths": 21499
+        "final_2024_deaths": 21499,
+        "age_adjusted_rate_2024": 715
       },
       "Vermont": {
         "estimate": 18,
-        "final_2024_deaths": 6706
+        "final_2024_deaths": 6706,
+        "age_adjusted_rate_2024": 710.9
       },
       "Virginia": {
         "estimate": 208,
-        "final_2024_deaths": 77311
+        "final_2024_deaths": 77311,
+        "age_adjusted_rate_2024": 713.7
       },
       "Washington": {
         "estimate": 177,
-        "final_2024_deaths": 65664
+        "final_2024_deaths": 65664,
+        "age_adjusted_rate_2024": 698.2
       },
       "West Virginia": {
         "estimate": 65,
-        "final_2024_deaths": 24268
+        "final_2024_deaths": 24268,
+        "age_adjusted_rate_2024": 954.6
       },
       "Wisconsin": {
         "estimate": 153,
-        "final_2024_deaths": 56851
+        "final_2024_deaths": 56851,
+        "age_adjusted_rate_2024": 723.9
       },
       "Wyoming": {
         "estimate": 15,
-        "final_2024_deaths": 5728
+        "final_2024_deaths": 5728,
+        "age_adjusted_rate_2024": 764.2
       }
+    },
+    "rate_metric": {
+      "year": 2024,
+      "status": "final",
+      "metric": "Age-adjusted all-cause death rate",
+      "unit": "deaths per 100,000 U.S. standard population",
+      "us_rate": 722.1,
+      "source": "CDC/NCHS National Vital Statistics System via CDC WONDER"
     }
   }
 }
