@@ -93,3 +93,10 @@
   .state-card strong{display:block;margin:0 0 7px}
   .state-card span{display:block;margin:0}
 }
+
+/* v7: hero counter uses uniform lining numerals */
+#national-number{
+  font-family: Georgia, "Times New Roman", serif;
+  font-variant-numeric: lining-nums tabular-nums;
+  font-feature-settings: "lnum" 1, "tnum" 1;
+}
