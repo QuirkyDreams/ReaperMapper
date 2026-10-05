@@ -56,3 +56,23 @@
   .map-wrap{height:60vh;min-height:500px}
   #us-map{height:100%;max-height:none;min-height:0}
 }
+
+/* v5: keep every state visible and never cover geography with the state card */
+@media(min-width:800px){
+  .map-wrap{height:68vh;min-height:570px}
+  .state-card{
+    position:relative;
+    right:auto;
+    bottom:auto;
+    width:100%;
+    margin:12px 0 0;
+    padding:16px 20px;
+    display:grid;
+    grid-template-columns:150px minmax(180px,280px) 1fr;
+    align-items:center;
+    gap:18px;
+  }
+  .state-card .eyebrow{margin:0}
+  .state-card strong{margin:0}
+  .state-card span{margin:0}
+}
