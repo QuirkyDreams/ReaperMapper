@@ -1,0 +1,8 @@
+{
+  "year": 2024,
+  "status": "final",
+  "annual_deaths": 3072666,
+  "monthly_deaths": [294589, 255129, 263199, 248972, 249911, 242177, 248384, 250539, 241904, 254644, 247967, 275251],
+  "source": "CDC/NCHS final U.S.-resident monthly deaths, 2024",
+  "note": "Used by ReaperMapper Model 0.2 as the validated monthly seasonal shape."
+}
