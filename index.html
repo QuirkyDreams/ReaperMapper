@@ -5,7 +5,7 @@
 <meta name="description" content="ReaperMapper maps modeled mortality across America using transparent official U.S. mortality statistics.">
 <title>ReaperMapper — Mortality across America</title>
 <link rel="preconnect" href="https://cdn.jsdelivr.net">
-<link rel="stylesheet" href="styles.css?v=20261004-2020">
+<link rel="stylesheet" href="styles.css?v=20261004-2024">
 </head>
 <body>
 <header class="site-header"><a class="brand" href="/">REAPER<span>MAPPER</span></a><div class="tag">Mortality across America.</div></header>
@@ -17,8 +17,8 @@
 <p class="status"><b>≈ MODELLED ESTIMATE</b><span><b class="provisional-mark">P</b> PROVISIONAL-ENHANCED</span><span>NOT A LIVE DEATH REGISTRY</span></p>
 </section>
 <section class="map-section" aria-labelledby="map-title">
-<div class="map-heading"><div><p class="eyebrow">MORTALITY ACROSS AMERICA</p><h2 id="map-title">Where are those deaths distributed?</h2></div><div class="legend"><span></span>2024 age-adjusted mortality rate</div></div>
-<div class="rate-legend" aria-label="Mortality rate legend"><span>LOWER</span><i></i><span>HIGHER</span><em>● FINAL 2024 · deaths per 100,000</em></div>
+<div class="map-heading"><div><p class="eyebrow">MORTALITY ACROSS AMERICA</p><h2 id="map-title">Where are those deaths distributed?</h2></div><div class="map-metric"><span>MAP SHOWS</span><div class="metric-toggle" role="group" aria-label="Map metric"><button id="metric-rate" class="active" type="button">MORTALITY RATE</button><button id="metric-deaths" type="button">ESTIMATED DEATHS TODAY</button></div></div></div>
+<div class="rate-legend" id="map-legend" aria-label="Map legend"><span>LOWER</span><i></i><span>HIGHER</span><em id="legend-detail">● FINAL 2024 · age-adjusted deaths per 100,000</em></div>
 <div class="map-wrap"><svg id="us-map" viewBox="0 -90 960 810" role="img" aria-label="Interactive map of the United States"></svg>
 <div id="state-card" class="state-card" aria-live="polite"><p class="eyebrow">SELECT A STATE</p><strong>Explore the map</strong><span>State-level estimates are not published yet.</span></div></div>
 <p class="map-note">50 states + District of Columbia · Alaska and Hawaii shown as insets</p>
@@ -65,5 +65,5 @@
 <footer><span>REAPERMAPPER</span><span>A Quirky Dreams! Software project</span><span>Model 0.2</span></footer>
 <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
 <script src="https://cdn.jsdelivr.net/npm/topojson-client@3"></script>
-<script src="app.js?v=20261004-2011"></script>
+<script src="app.js?v=20261004-2024"></script>
 </body></html>
