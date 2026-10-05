@@ -223,3 +223,8 @@
  height:8px;
  background:linear-gradient(90deg,#20211d 0%,#3f3c31 20%,#716044 40%,#a17b4e 60%,#d2a25e 80%,#f0c878 100%)!important;
 }
+
+/* v17: subtle studio attribution */
+.qd-credit a{color:inherit;text-decoration:none;transition:color .15s ease}
+.qd-credit a:hover,.qd-credit a:focus{color:var(--warm)}
+.qd-credit a:last-child{margin-left:3px}
