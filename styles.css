@@ -18,3 +18,19 @@
   .map-section{padding-top:28px}
   #us-map{max-height:none}
 }
+
+/* v2: the map must be visible without scrolling on desktop */
+@media(min-width:800px){
+  .site-header{padding-top:18px;padding-bottom:18px}
+  .hero{padding:28px 24px 24px}
+  .hero .eyebrow{margin:0}
+  .hero-number{font-size:clamp(64px,7.5vw,105px);line-height:.82;margin:10px 0 8px}
+  .hero h1{font-size:clamp(17px,1.65vw,24px)}
+  .status{margin:12px 0 0}
+  .map-section{padding-top:22px;padding-bottom:54px}
+  .map-heading{align-items:center}
+  .map-heading .eyebrow{margin:0}
+  .map-heading h2{font-size:clamp(24px,2.5vw,36px);margin:4px 0 0}
+  .map-wrap{margin-top:14px}
+  #us-map{height:48vh;min-height:330px}
+}
