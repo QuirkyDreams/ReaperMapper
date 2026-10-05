@@ -34,3 +34,19 @@
   .map-wrap{margin-top:14px}
   #us-map{height:48vh;min-height:330px}
 }
+
+/* v3: hero and map are one first-screen composition */
+@media(min-width:800px){
+  .site-header{max-width:1380px;padding:14px 28px}
+  .hero{padding:18px 24px 14px}
+  .hero-number{font-size:clamp(54px,5.8vw,86px);margin:6px 0 5px;line-height:.78}
+  .hero h1{font-size:clamp(16px,1.45vw,22px)}
+  .hero .eyebrow{font-size:9px}
+  .status{margin-top:9px;font-size:8px}
+  .map-section{max-width:1380px;padding:14px 28px 42px;border-top:0}
+  .map-heading{border-top:1px solid var(--line);padding-top:14px}
+  .map-heading h2{font-size:clamp(22px,2.2vw,32px)}
+  .map-heading .eyebrow{font-size:9px}
+  .map-wrap{margin-top:10px}
+  #us-map{height:52vh;min-height:350px}
+}
