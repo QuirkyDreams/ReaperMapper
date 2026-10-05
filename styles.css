@@ -184,3 +184,12 @@
  .rate-legend em{justify-self:start}
  .map-view-label{left:12px;top:12px}
 }
+
+/* v14: five-grade choropleth legend */
+.rate-legend .grade-scale{display:grid!important;grid-template-columns:repeat(5,1fr);height:7px;background:none!important;overflow:hidden}
+.grade-scale b{display:block;height:100%}
+.grade-scale b:nth-child(1){background:#252620}
+.grade-scale b:nth-child(2){background:#514b3d}
+.grade-scale b:nth-child(3){background:#76684f}
+.grade-scale b:nth-child(4){background:#9a805e}
+.grade-scale b:nth-child(5){background:#c3a06c}
