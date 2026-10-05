@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="ReaperMapper maps modeled mortality across America using transparent official U.S. mortality statistics.">
+<title>ReaperMapper — Mortality across America</title>
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="site-header"><a class="brand" href="/">REAPER<span>MAPPER</span></a><div class="tag">Mortality across America.</div></header>
+<main>
+<section class="hero">
+<p class="eyebrow">UNITED STATES · TODAY</p>
+<div class="hero-number"><span class="approx">≈</span><span id="national-number">—</span></div>
+<h1>estimated deaths in the United States today</h1>
+<p class="status"><b>≈ MODELLED ESTIMATE</b><span>NOT A LIVE DEATH REGISTRY</span></p>
+</section>
+<section class="map-section" aria-labelledby="map-title">
+<div class="map-heading"><div><p class="eyebrow">MORTALITY ACROSS AMERICA</p><h2 id="map-title">Where are those deaths distributed?</h2></div><div class="legend"><span></span>State estimates coming next</div></div>
+<div class="map-wrap"><svg id="us-map" viewBox="0 0 960 600" role="img" aria-label="Interactive map of the United States"></svg>
+<div id="state-card" class="state-card" aria-live="polite"><p class="eyebrow">SELECT A STATE</p><strong>Explore the map</strong><span>State-level estimates are not published yet.</span></div></div>
+<p class="map-note">50 states + District of Columbia · Alaska and Hawaii shown as insets</p>
+</section>
+<section class="method">
+<p class="eyebrow">HOW DO YOU KNOW?</p><h2>We don't watch deaths happen.</h2>
+<p>ReaperMapper estimates expected mortality from official U.S. mortality statistics. The daily figure is a modelled expectation—not a count of individually observed deaths occurring in real time.</p>
+<div class="provenance"><div><b>≈</b><span>Modelled estimate</span></div><div><b>P</b><span>Provisional data</span></div><div><b>●</b><span>Final data</span></div></div>
+</section>
+</main>
+<footer><span>REAPERMAPPER</span><span>A Quirky Dreams! Software project</span><span>Model 0.1</span></footer>
+<script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+<script src="https://cdn.jsdelivr.net/npm/topojson-client@3"></script>
+<script src="app.js"></script>
+</body></html>
