@@ -1,0 +1,45 @@
+{
+  "experiment": "seasonal_memory_0.1",
+  "rule": "Compare model choices across held-out years; do not choose based on 2024 alone.",
+  "resident_deaths": {
+    "2021": 3464231,
+    "2022": 3279857,
+    "2023": 3090964,
+    "2024": 3072666
+  },
+  "tests": [
+    {
+      "target_year": 2023,
+      "annual_forecast": 3279857,
+      "recent_training": [
+        2022
+      ],
+      "pooled_training": [
+        2021,
+        2022
+      ],
+      "recent_mape_pct": 6.294,
+      "pooled_mape_pct": 7.111,
+      "shape_only_recent_mape_pct": 5.317,
+      "shape_only_pooled_mape_pct": 5.573,
+      "winner": "recent_single_year"
+    },
+    {
+      "target_year": 2024,
+      "annual_forecast": 3090964,
+      "recent_training": [
+        2023
+      ],
+      "pooled_training": [
+        2022,
+        2023
+      ],
+      "recent_mape_pct": 1.619,
+      "pooled_mape_pct": 2.313,
+      "shape_only_recent_mape_pct": 1.511,
+      "shape_only_pooled_mape_pct": 2.497,
+      "winner": "recent_single_year"
+    }
+  ],
+  "conclusion": "Recent single-year seasonality wins both held-out tests. Treat this as evidence for short seasonal memory, not a universal proof."
+}
