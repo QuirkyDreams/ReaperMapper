@@ -275,3 +275,19 @@
   .map-view-label{z-index:5}
   .state-card{position:relative;z-index:5}
 }
+
+/* v20: maker credit beside product brand */
+.header-branding{display:flex;align-items:center;gap:10px;min-width:0}
+.header-divider{color:var(--line);font-size:12px}
+.maker{font:8px/1 Arial,sans-serif;letter-spacing:.12em;color:var(--muted);white-space:nowrap}
+.maker a{color:inherit;text-decoration:none;transition:color .15s ease}
+.maker a:hover,.maker a:focus{color:var(--warm);outline:none}
+@media(max-width:700px){
+  .header-branding{gap:7px}
+  .header-divider{display:none}
+  .maker{font-size:7px;letter-spacing:.08em}
+}
+@media(max-width:430px){
+  .site-header{align-items:flex-start}
+  .header-branding{flex-direction:column;align-items:flex-start;gap:5px}
+}
