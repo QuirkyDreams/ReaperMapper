@@ -64,5 +64,19 @@ document.getElementById("metric-rate")?.addEventListener("click",()=>setMapMetri
 document.getElementById("metric-deaths")?.addEventListener("click",()=>setMapMetric("deaths"));
 Promise.all([stateDataReady,fetch("https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.json").then(r=>{if(!r.ok) throw new Error("Map geometry unavailable"); return r.json();})]).then(([,us])=>{
  const states=topojson.feature(us,us.objects.states), projection=d3.geoAlbersUsa().fitExtent([[35,35],[925,555]],states); projection.scale(projection.scale()*1.35); const [px,py]=projection.translate(); projection.translate([px-72,py]); const path=d3.geoPath(projection);
- svg.selectAll("path").data(states.features).join("path").attr("class","state").attr("d",path).attr("tabindex",0).attr("aria-label",d=>names[+d.id]).on("mouseenter focus click",(e,d)=>show(d)); applyMapColors();
+ const geography=svg.append("g").attr("class","map-geography");
+ geography.selectAll("path").data(states.features).join("path").attr("class","state").attr("d",path).attr("tabindex",0).attr("aria-label",d=>names[+d.id]).on("mouseenter focus click",(e,d)=>show(d));
+ const reset=document.getElementById("map-reset");
+ const zoom=d3.zoom().scaleExtent([1,8]).translateExtent([[-240,-240],[1200,960]]).filter(event=>{
+   if(event.type==="wheel") return false;
+   if(event.type==="dblclick") return false;
+   if(event.type==="touchstart"||event.type==="touchmove") return event.touches && event.touches.length>=2;
+   return event.pointerType!=="touch";
+ }).on("zoom",event=>{
+   geography.attr("transform",event.transform);
+   reset?.classList.toggle("visible",event.transform.k!==1||event.transform.x!==0||event.transform.y!==0);
+ });
+ svg.call(zoom).on("dblclick.zoom",null);
+ reset?.addEventListener("click",()=>svg.transition().duration(220).call(zoom.transform,d3.zoomIdentity));
+ applyMapColors();
 }).catch(()=>{card.innerHTML='<p class="eyebrow">MAP</p><strong>Map unavailable</strong><span>The geographic layer could not be loaded.</span>'});
