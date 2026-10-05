@@ -1,23 +1,27 @@
 {
   "as_of": "2026-10-04",
   "national": {
-    "estimate": 8214,
-    "unrounded_daily_estimate": 8214.322580645161,
+    "estimate": 8273,
+    "unrounded_daily_estimate": 8272.941204090015,
     "symbol": "≈",
     "status": "modeled",
-    "model_version": "0.1",
-    "methodology": "Latest validated final annual total with latest validated final monthly seasonal shape; monthly expectation divided evenly across calendar days.",
+    "provenance": "provisional-enhanced",
+    "model_version": "0.2",
+    "methodology": "2025 provisional annual U.S.-resident death total allocated using the latest validated final monthly seasonal shape (2024), then divided evenly across October calendar days.",
     "annual_baseline": {
-      "year": 2024,
-      "deaths": 3072666,
-      "status": "final"
+      "year": 2025,
+      "deaths": 3094593,
+      "status": "provisional",
+      "record_completeness": "99.9%",
+      "cutoff": "2026-05-10"
     },
     "seasonal_source": {
       "year": 2024,
       "month": 10,
       "deaths": 254644,
+      "annual_deaths": 3072666,
       "status": "final"
     },
-    "precision_note": "Modeled estimate; not an observed live death count."
+    "precision_note": "Modeled estimate informed by provisional annual mortality data; not an observed live death count."
   }
 }
