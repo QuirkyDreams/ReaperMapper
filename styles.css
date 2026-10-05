@@ -50,3 +50,9 @@
   .map-wrap{margin-top:10px}
   #us-map{height:52vh;min-height:350px}
 }
+
+/* v4: larger window for the enlarged 1.35x geography */
+@media(min-width:800px){
+  .map-wrap{height:60vh;min-height:500px}
+  #us-map{height:100%;max-height:none;min-height:0}
+}
