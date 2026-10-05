@@ -1,0 +1,34 @@
+{
+  "experiment": "annual_trend_shootout_0.1",
+  "information_cutoff": "2023-12-31",
+  "target_year": 2024,
+  "actual_final_deaths": 3072666,
+  "candidates": [
+    {
+      "model": "carry_forward",
+      "prediction": 3090964,
+      "absolute_error": 18298,
+      "ape_pct": 0.596
+    },
+    {
+      "model": "damped_recent_pct_50",
+      "prediction": 3001957,
+      "absolute_error": 70709,
+      "ape_pct": 2.301
+    },
+    {
+      "model": "continue_recent_pct_change",
+      "prediction": 2912950,
+      "absolute_error": 159716,
+      "ape_pct": 5.198
+    },
+    {
+      "model": "linear_trend_2021_2023",
+      "prediction": 2905084,
+      "absolute_error": 167582,
+      "ape_pct": 5.454
+    }
+  ],
+  "verdict": "Carry-forward wins the 2024 held-out contest decisively. Do not promote permanently from one annual target; expand historical backtesting before choosing the production annual model.",
+  "integrity": "Candidate definitions were frozen before scoring. 2023 was not used as a two-year-trend target because 2020 data are not present."
+}
