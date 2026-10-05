@@ -20,7 +20,7 @@ function show(d){
  if(row){
    const rate=Number(row.age_adjusted_rate_2024), delta=(rate/usMortalityRate-1)*100;
    const comparison=Math.abs(delta)<0.05?'about the U.S. rate':Math.abs(delta).toFixed(1)+'% '+(delta>0?'above':'below')+' U.S. rate';
-   card.innerHTML='<p class="eyebrow">STATE · ≈ MODELLED</p><strong>'+name+'</strong><span><b>≈ '+Number(row.estimate).toLocaleString("en-US")+'</b> estimated deaths today<br><b class="rate-value">'+rate.toFixed(1)+'</b> <small>per 100,000 · age-adjusted</small><br><small>'+comparison+' · ● FINAL 2024 RATE</small></span>';
+   card.innerHTML='<p class="eyebrow">STATE</p><strong class="state-name">'+name+'</strong><div class="state-stat"><b>≈ '+Number(row.estimate).toLocaleString("en-US")+'</b><span>estimated deaths today</span></div><div class="state-stat rate-stat"><b class="rate-value">'+rate.toFixed(1)+'</b><span>per 100,000 · age-adjusted</span></div><p class="state-comparison">'+comparison+'</p><p class="state-provenance">● FINAL 2024 RATE · ≈ MODELLED DAILY</p>';
  }else{
    card.innerHTML='<p class="eyebrow">STATE</p><strong>'+name+'</strong><span>Estimate loading…</span>';
  }
