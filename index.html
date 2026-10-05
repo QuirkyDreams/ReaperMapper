@@ -5,7 +5,7 @@
 <meta name="description" content="ReaperMapper maps modeled mortality across America using transparent official U.S. mortality statistics.">
 <title>ReaperMapper — Mortality across America</title>
 <link rel="preconnect" href="https://cdn.jsdelivr.net">
-<link rel="stylesheet" href="styles.css?v=20261004-2009">
+<link rel="stylesheet" href="styles.css?v=20261004-2020">
 </head>
 <body>
 <header class="site-header"><a class="brand" href="/">REAPER<span>MAPPER</span></a><div class="tag">Mortality across America.</div></header>
@@ -25,8 +25,41 @@
 </section>
 <section class="method">
 <p class="eyebrow">HOW DO YOU KNOW?</p><h2>We don't watch deaths happen.</h2>
-<p>ReaperMapper estimates expected mortality from official U.S. mortality statistics. The daily figure is a modelled expectation—not a count of individually observed deaths occurring in real time.</p>
+<p class="method-lede">There is no national system reporting every U.S. death the moment it occurs. ReaperMapper therefore estimates expected mortality from official CDC/NCHS statistics. <strong>≈ 8,273 is a modelled expectation, not a count of people observed dying today.</strong></p>
+
+<div class="method-grid">
+<article>
+<p class="method-step">01 · NATIONAL ESTIMATE</p>
+<h3>Start with the newest credible annual picture.</h3>
+<p>Model 0.2 uses the CDC/NCHS <strong>2025 provisional total of 3,094,593 U.S. deaths</strong> as its annual baseline. Provisional data are newer than final statistics, but can still be revised.</p>
+</article>
+<article>
+<p class="method-step">02 · SEASONALITY</p>
+<h3>Deaths are not evenly distributed through the year.</h3>
+<p>The annual baseline is distributed using the monthly pattern from the latest validated final mortality data. October's expected total is then divided across its <strong>31 calendar days</strong> to produce today's daily expectation.</p>
+</article>
+<article>
+<p class="method-step">03 · STATES</p>
+<h3>Make the states add back to America.</h3>
+<p>Each state's daily estimate is allocated from the national estimate using its share of <strong>final 2024 U.S.-resident deaths</strong>. Integer allocation preserves the national total, so all 50 states plus D.C. sum to the displayed U.S. estimate.</p>
+</article>
+<article>
+<p class="method-step">04 · MAP COLOR</p>
+<h3>Color means mortality rate—not population.</h3>
+<p>The choropleth uses CDC's <strong>final 2024 age-adjusted all-cause death rate</strong>, measured per 100,000 population. Age adjustment makes comparisons between states more meaningful despite differences in population age structure.</p>
+</article>
+</div>
+
+<div class="model-card">
+<div><span>MODEL</span><b>0.2</b></div>
+<div><span>ANNUAL BASELINE</span><b>P · 2025</b><small>3,094,593 deaths</small></div>
+<div><span>SEASONAL SOURCE</span><b>● · 2024</b><small>final monthly mortality</small></div>
+<div><span>STATE ALLOCATION</span><b>● · 2024</b><small>final resident deaths</small></div>
+<div><span>MAP METRIC</span><b>● · 2024</b><small>age-adjusted rate</small></div>
+</div>
+
 <div class="provenance"><div><b>≈</b><span>Modelled estimate</span></div><div><b>P</b><span>Provisional data</span></div><div><b>●</b><span>Final data</span></div></div>
+<p class="method-caveat">ReaperMapper does not identify individual deaths, predict who will die, or claim that a death occurred when the display changes. Recent provisional mortality data can be incomplete because death certificates take time to be reported and processed.</p>
 </section>
 </main>
 <footer><span>REAPERMAPPER</span><span>A Quirky Dreams! Software project</span><span>Model 0.2</span></footer>
