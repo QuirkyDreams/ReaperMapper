@@ -321,3 +321,11 @@
 .dtm-note{margin:10px 0 0;font:9px/1.4 Arial,sans-serif;color:var(--muted)}
 .metric-toggle.dtm-history button{opacity:.38;pointer-events:none}
 @media(max-width:799px){.dtm-integrated{padding:15px 14px}.dtm-head{align-items:flex-start}.dtm-head h3{font-size:17px}.dtm-readout strong{font-size:20px}.dtm-controls{grid-template-columns:1fr}.dtm-controls #dtm-play{justify-self:start}.dtm-ticks{grid-column:1;font-size:6px}}
+
+/* v24: auditable choropleth legend */
+.rate-legend .legend-end{display:flex;flex-direction:column;gap:2px;min-width:34px;letter-spacing:.08em}
+.rate-legend .legend-end b{font:700 11px/1 Arial,sans-serif;color:var(--ink);font-variant-numeric:tabular-nums}
+.rate-legend .legend-end small{font:7px/1 Arial,sans-serif;color:var(--muted);letter-spacing:.12em}
+.rate-legend .legend-end-high{text-align:right}
+.rate-legend .continuous-scale{background:linear-gradient(90deg,#20211d,#3f3c31,#716044,#a17b4e,#d2a25e,#f0c878)}
+@media(max-width:799px){.rate-legend .continuous-scale{width:min(150px,45vw)}}
