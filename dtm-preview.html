@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Death Time Machine — ReaperMapper development preview</title>
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="dtm.css">
+</head>
+<body class="dtm-page">
+<header class="site-header"><div class="header-branding"><a class="brand" href="/">REAPER<span>MAPPER</span></a><span class="header-divider">·</span><span class="maker">DEVELOPMENT BRANCH</span></div><div class="tag">Mortality across time.</div></header>
+<main class="dtm-shell">
+<section class="dtm-intro">
+<p class="eyebrow">DEATH TIME MACHINE · DEVELOPMENT PREVIEW</p>
+<h1>What did mortality look like then?</h1>
+<p>This preview exposes only audited historical values. Missing years are deliberately unavailable until they pass ReaperMapper's validation gates.</p>
+</section>
+<section class="dtm-console" aria-labelledby="dtm-year">
+<div class="dtm-readout">
+<div><span class="dtm-status">● FINAL</span><strong id="dtm-year">1968</strong></div>
+<div class="dtm-stat"><span>U.S. RESIDENT DEATHS</span><b id="dtm-deaths">1,930,082</b></div>
+<div class="dtm-stat"><span>AGE-ADJUSTED RATE</span><b id="dtm-rate">1,304.5</b><small>per 100,000 · 2000 U.S. standard</small></div>
+</div>
+<div class="dtm-controls">
+<button id="dtm-play" type="button" aria-label="Play historical mortality timeline">▶ PLAY</button>
+<input id="dtm-slider" type="range" min="0" max="11" value="0" step="1" aria-label="Historical year">
+</div>
+<div class="dtm-ticks"><span>1968</span><span>1978</span><span class="dtm-gap">DATA VALIDATION IN PROGRESS</span><span>2024</span></div>
+<div class="dtm-track-note" id="dtm-note">ICD-8 era · final all-cause mortality</div>
+</section>
+<section class="dtm-context">
+<div><p class="eyebrow">THE IMPORTANT PART</p><h2>History is observed. Today is modeled.</h2></div>
+<p>Historical Death Time Machine years use final annual mortality. ReaperMapper's TODAY display is a separate provenance mode built from provisional and final inputs. The two will never be presented as equivalent.</p>
+</section>
+<section class="dtm-validation">
+<p class="eyebrow">DATA STATUS</p><h2>Why doesn't the slider have every year yet?</h2>
+<p>Because a smooth animation is not evidence. The complete target is 1968 → 2024 → TODAY, but a year enters production only after its death counts, age-adjusted rates, source era and state data pass validation.</p>
+<div class="dtm-era-grid">
+<article><b>1968–1978</b><span>National series audited · early state work underway</span></article>
+<article><b>1979–1998</b><span>Source identified · validation pending</span></article>
+<article><b>1999–2024</b><span>Source identified · validation pending</span></article>
+<article><b>TODAY</b><span>≈ Model 0.2 · separate modeled mode</span></article>
+</div>
+</section>
+</main>
+<script src="dtm.js"></script>
+</body></html>
