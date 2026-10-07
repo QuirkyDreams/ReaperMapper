@@ -76,18 +76,19 @@ function show(d){
  }
 }
 let mapMetric="rate";
+function metricDomain(values){const sorted=values.filter(Number.isFinite).sort((a,b)=>a-b);return [d3.quantileSorted(sorted,0.02),d3.quantileSorted(sorted,0.98)]}
+function updateLegendValues(values,metric){const [low,high]=metricDomain(values),lo=document.getElementById("legend-low-value"),hi=document.getElementById("legend-high-value");if(lo)lo.textContent=metric==="deaths"?Math.round(low).toLocaleString("en-US"):low.toFixed(0);if(hi)hi.textContent=metric==="deaths"?Math.round(high).toLocaleString("en-US"):high.toFixed(0)}
 function continuousMetricColor(value,values){
- const sorted=values.filter(Number.isFinite).sort((a,b)=>a-b);
- const low=d3.quantileSorted(sorted,0.02);
- const high=d3.quantileSorted(sorted,0.98);
+ const [low,high]=metricDomain(values);
  const t=Math.max(0,Math.min(1,(value-low)/(high-low)));
  return d3.interpolateRgbBasis(["#20211d","#3f3c31","#716044","#a17b4e","#d2a25e","#f0c878"])(t);
 }
 function applyMapColors(){
- if(dtmHistoricalRow){svg.selectAll("path.state").style("fill",d=>{const st=historyState(dtmHistoricalRow,d.id);return st?continuousMetricColor(st.age_adjusted_rate,dtmGlobalRates):"#20211d"});const detail=document.getElementById("legend-detail");if(detail)detail.textContent="● FINAL "+dtmHistoricalRow.year+" · age-adjusted deaths per 100,000";const title=document.getElementById("map-view-title"),subtitle=document.getElementById("map-view-subtitle");if(title)title.textContent="MORTALITY RATE";if(subtitle)subtitle.textContent=dtmHistoricalRow.year+" age-adjusted deaths per 100,000";return;}
+ if(dtmHistoricalRow){updateLegendValues(dtmGlobalRates,"rate");svg.selectAll("path.state").style("fill",d=>{const st=historyState(dtmHistoricalRow,d.id);return st?continuousMetricColor(st.age_adjusted_rate,dtmGlobalRates):"#20211d"});const detail=document.getElementById("legend-detail");if(detail)detail.textContent="● FINAL "+dtmHistoricalRow.year+" · age-adjusted deaths per 100,000";const title=document.getElementById("map-view-title"),subtitle=document.getElementById("map-view-subtitle");if(title)title.textContent="MORTALITY RATE";if(subtitle)subtitle.textContent=dtmHistoricalRow.year+" age-adjusted deaths per 100,000";return;}
  const rows=Object.values(stateEstimates);
  const key=mapMetric==="rate" ? "age_adjusted_rate_2024" : "estimate";
  const values=rows.map(r=>Number(r[key])).filter(Number.isFinite);
+ updateLegendValues(values,mapMetric);
  svg.selectAll("path.state").style("fill",d=>{
    const row=stateEstimates[names[+d.id]];
    if(!row) return "#20211d";
