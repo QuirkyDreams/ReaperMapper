@@ -1,0 +1,72 @@
+{
+  "schema_version": "dtm-preview-0.1",
+  "production_ready": false,
+  "rate_standard": "2000_US",
+  "warning": "Development preview. Only audited values are exposed; missing state-year data are not interpolated.",
+  "national": [
+    {
+      "year": 1968,
+      "deaths": 1930082,
+      "rate": 1304.5
+    },
+    {
+      "year": 1969,
+      "deaths": 1921990,
+      "rate": 1271.8
+    },
+    {
+      "year": 1970,
+      "deaths": 1921031,
+      "rate": 1222.6
+    },
+    {
+      "year": 1971,
+      "deaths": 1927542,
+      "rate": 1213.1
+    },
+    {
+      "year": 1972,
+      "deaths": 1963944,
+      "rate": 1214.8
+    },
+    {
+      "year": 1973,
+      "deaths": 1973003,
+      "rate": 1201.2
+    },
+    {
+      "year": 1974,
+      "deaths": 1934388,
+      "rate": 1151.8
+    },
+    {
+      "year": 1975,
+      "deaths": 1892879,
+      "rate": 1094.4
+    },
+    {
+      "year": 1976,
+      "deaths": 1909440,
+      "rate": 1084.1
+    },
+    {
+      "year": 1977,
+      "deaths": 1899597,
+      "rate": 1051.6
+    },
+    {
+      "year": 1978,
+      "deaths": 1927788,
+      "rate": 1043.7
+    },
+    {
+      "year": 2024,
+      "deaths": 3072666,
+      "rate": 722.1
+    }
+  ],
+  "notes": {
+    "1972": "NCHS CMF mortality is based on a 50% sample weighted by 2.",
+    "2024": "Final CDC/NCHS mortality."
+  }
+}
